@@ -1,0 +1,5 @@
+tmp/
+test.sh
+node_modules/
+build/
+.wrangler/

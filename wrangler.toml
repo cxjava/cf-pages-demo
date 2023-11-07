@@ -1,0 +1,6 @@
+name = "test-go"
+compatibility_date = "2023-11-07"
+
+[build]
+command = "make build"
+

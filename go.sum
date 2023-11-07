@@ -1,0 +1,6 @@
+github.com/go-chi/chi/v5 v5.0.8 h1:lD+NLqFcAi1ovnVZpsnObHGW4xb4J8lNmoYVfECH1Y0=
+github.com/go-chi/chi/v5 v5.0.8/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
+github.com/jpillora/installer v0.4.2 h1:tpN/r62P/Ie20BaLpAx5Yjv5O2LIIjb3YEKB+WpVR6w=
+github.com/jpillora/installer v0.4.2/go.mod h1:+Mn9alyqYuU7RMVMZf442eyMMVPbkB28M3xffbkO6sA=
+github.com/syumai/workers v0.18.0 h1:RBnOFqghALR0woeCCYumG7Zt7UDFAt51rSQJhd/hJjw=
+github.com/syumai/workers v0.18.0/go.mod h1:ZnqmdiHNBrbxOLrZ/HJ5jzHy6af9cmiNZk10R9NrIEA=
