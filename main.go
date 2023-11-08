@@ -2,21 +2,16 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/jpillora/installer/handler"
 	"github.com/syumai/workers"
 )
 
 func main() {
 	r := chi.NewRouter()
-	c := handler.DefaultConfig
-	h := &handler.Handler{Config: c}
 	r.Route("/api", func(r chi.Router) {
-		// https://github.com/jpillora/installer
-		r.Get("/install", h.ServeHTTP)
-		
 		r.Get("/hello", func(w http.ResponseWriter, req *http.Request) {
 			name := req.URL.Query().Get("name")
 			if name == "" {
@@ -25,7 +20,13 @@ func main() {
 			fmt.Fprintf(w, "Hello, %s!", name)
 		})
 		r.Get("/hello2", func(w http.ResponseWriter, req *http.Request) {
-			fmt.Fprintf(w, "Hello, Hello world!")
+			resp, err := http.DefaultClient.Get(`https://cf-pages-demo-cxjava.pages.dev/api/hello`)
+			if err != nil {
+				fmt.Fprintf(w, "Hello, Hello world! plus "+err.Error())
+			}
+			defer resp.Body.Close()
+			body, err := io.ReadAll(req.Body)
+			fmt.Fprintf(w, "Hello, Hello world! plus remote "+string(body))
 		})
 		r.Get("/hello3", func(w http.ResponseWriter, req *http.Request) {
 			fmt.Fprintf(w, "Hello, Hello, Hello world!")
