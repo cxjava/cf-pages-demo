@@ -4,8 +4,9 @@ dev:
 
 .PHONY: build
 build:
-	go run github.com/syumai/workers/cmd/workers-assets-gen@v0.18.0 -mode=go
-	GOOS=js GOARCH=wasm go build -o ./build/app.wasm .
+	go run github.com/syumai/workers/cmd/workers-assets-gen@v0.18.0
+	tinygo build -o ./build/app.wasm -target wasm -no-debug ./...
+	# GOARCH=wasm GOOS=js go build -o ./build/app.wasm .
 
 .PHONY: deploy
 deploy:
